@@ -1,0 +1,45 @@
+@model Category
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    <title>All Products</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <p>Click Here <a href="/">Commodity</a> to view all the list of Commodities</p><br>
+                <h4>List of Categories</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        @foreach ( var c in @ViewBag.allCategories )
+                        {
+                            <tr>
+                                <td><a href="/showCategory/@c.CategoryId">@c.CategoryName</a></td>
+                                <td><a href="/deleteCategory/@c.CategoryId">Delete</a></td>
+                                <td><a href="/editCategory/@c.CategoryId">Edit</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/show/newCategory"><button class="btn btn-primary">Create Category</button></a>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</body>
+</html>

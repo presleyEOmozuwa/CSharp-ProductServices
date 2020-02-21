@@ -1,0 +1,57 @@
+@model Category
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    <title>Show Category</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h4>@Model.CategoryName</h4><br>
+                <p>Commodity ID : @Model.CategoryId</p>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h5> Add Commodities that belong to @Model.CategoryName Category </h5>
+                @foreach ( var p in @Model.Commodities)
+                {
+                    <p>@p.commodity.Name</p>
+                }
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <form action="/show/addCommodity" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="hidden" name="CategoryId" value="@Model.CategoryId">
+                    </div>
+                    <div class="form-group">
+                        <select name="CommodityId">
+                            @foreach ( var c in @ViewBag.allCommodities)
+                            {
+                                <option value="@c.CommodityId">@c.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type = "submit">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+</html>

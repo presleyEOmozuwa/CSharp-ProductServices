@@ -1,0 +1,60 @@
+@model Commodity
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    <title>Show Commodity</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h4>@Model.Name</h4><br>
+                <p>Commodity ID : @Model.CommodityId</p>
+                <p>Price : @Model.Price</p>
+                <p>Quantity : @Model.Quantity</p>
+                <p>Description : @Model.Description</p><br>
+            </div>    
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h5>Add Categories of which the @Model.Name belongs </h5>
+                @foreach ( var p in @Model.Categories)
+                {
+                    <p>@p.category.CategoryName</p>
+                }
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <form action="/show/addCategory" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="hidden" name="CommodityId" value="@Model.CommodityId">
+                    </div>
+                    <div class="form-group">
+                            <select name="CategoryId">
+                                @foreach ( var c in @ViewBag.allCategories)
+                                {
+                                    <option value="@c.CategoryId">@c.CategoryName</option>
+                                }
+                            </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type = "submit">Add</button>
+                    </div>
+                </form> 
+            </div>
+            <div class="col-md-4"></div>
+        </div>    
+    </div>
+</body>
+</html>

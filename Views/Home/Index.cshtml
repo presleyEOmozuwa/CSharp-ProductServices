@@ -1,0 +1,52 @@
+@model Commodity
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    <title>All Products</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <p>Click Here <a href="/allCategories">Category</a> to view all the list of Categories</p><br>
+                <h4>List of available Commodities in Stock</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Action</th>
+                        
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        @foreach ( var p in @ViewBag.Commodities )
+                        {
+                            <tr>
+                                <td><a href="/showCommodity/@p.CommodityId">@p.Name</a></td>
+                                <td>@p.Price</td>
+                                <td>@p.Quantity</td>
+                                <td>@p.Description</td>
+                                <td><a href="/deleteCommodity/@p.CommodityId">Delete</a></td>
+                                <td><a href="/editCommodity/@p.CommodityId">Edit</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/newCommodity"><button class="btn btn-primary">AddToStock</button></a>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</body>
+</html>

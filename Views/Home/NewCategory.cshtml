@@ -1,0 +1,31 @@
+@model Category
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    <title>New Category</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <form action="/createCategory" method="post">
+                    <div class="form-group">
+                        <label for="CategoryName">Name</label>
+                        <input class="form-control" type="text" name="CategoryName">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit">Create Category</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@model Commodity
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+    <title>Edit</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+
+                <form action = "/editCommodity/update/@Model.CommodityId"  method="post">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input class="form-control" type="text" name = "Name" value="@Model.Name">
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Price</label>
+                        <input class="form-control" type="Price" name = "Price" value="@Model.Price">
+                        <span asp-validation-for="Price"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Quantity">Quantity</label>
+                        <input class="form-control" type="Quantity" name = "Quantity" value="@Model.Quantity">
+                        <span asp-validation-for="Quantity"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Description</label>
+                        <textarea class="form-control"  name="Description" rows="5" cols="20" value="@Model.Description">@Model.Description</textarea>
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type = "submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+</html>
