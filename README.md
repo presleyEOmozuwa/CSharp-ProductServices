@@ -1,2 +1,3 @@
 # CSharp-ProductServices
-The web application allows users to keep track of commodities and categories
+This web application allows users to keep track of their products' inventories
+and has a way of classifying them according to the categories they belong.
